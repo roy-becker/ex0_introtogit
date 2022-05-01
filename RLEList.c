@@ -306,7 +306,7 @@ RLEListResult RLEListMap(RLEList list, MapFunction mapFunction)
 		return RLE_LIST_OUT_OF_MEMORY;
 	}
 
-	RLEListResult* result;
+	RLEListResult* result = RLE_LIST_SUCCESS;
 
 	for (int i = 0; i < RLEListSize(list); i++)
 	{
