@@ -5,7 +5,7 @@
 
 #include <stdio.h>
 #include <stdbool.h>
-#include "..\\RLEList.h"
+#include "../RLEList.h"
 
 /**
 * ASCII Art Tool
