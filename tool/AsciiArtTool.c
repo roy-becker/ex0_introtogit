@@ -31,14 +31,11 @@ RLEListResult asciiArtPrint(RLEList list, FILE *out_stream)
         return RLE_LIST_NULL_ARGUMENT;
     }
 
-    while (list != NULL)
+    int size = RLEListSize(list);
+
+    for (int i = 0; i < size; i++)
     {
-        for (int i = 0; i < list->num; i++)
-        {
-            fprintf(out_stream, "%c", list->val);
-        }
-        
-        list = list->next;
+        fprintf(out_stream, "%c", RLEListGet(list, i, NULL));
     }
 
     return RLE_LIST_SUCCESS;
