@@ -8,11 +8,11 @@ $(EXEC) : $(OBJS)
 	$(CC) $(DEBUG_FLAG) $(OBJS) -o $@
 
 AsciiArtTool.o : tool/AsciiArtTool.c tool/AsciiArtTool.h tool/../RLEList.h
-	$(CC) -c $(DEBUG_FLAG) $(COMP_FLAG) tool/AsciiArtTool.c
+	$(CC) $(CFLAGS) -c tool/AsciiArtTool.c
 RLEList.o : RLEList.c RLEList.h
-	$(CC) -c $(DEBUG_FLAG) $(COMP_FLAG) RLEList.c
+	$(CC) $(CFLAGS) -c RLEList.c
 main.o : tool/main.c tool/AsciiArtTool.h tool/../RLEList.h
-	$(CC) -c $(DEBUG_FLAG) $(COMP_FLAG) tool/main.c
+	$(CC) $(CFLAGS) -c tool/main.c
 
 clean:
 	rm -f $(OBJS) $(EXEC)

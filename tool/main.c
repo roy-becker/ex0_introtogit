@@ -6,7 +6,7 @@
 #define FILENAME_SIZE 100
 
 
-MapFunction invert(char value)
+char invert(char value)
 {
     switch (value)
     {
@@ -22,16 +22,22 @@ MapFunction invert(char value)
 }
 
 
-int main()
+int main(int argc, char **argv)
 {
     bool inverted = false;
     bool encoded = false;
 
-    char flag;
-
-    while (scanf("-%c ", &flag) == 1)
+    for (int i = 1; i < argc - 2; i++)
     {
-        switch (flag)
+        char* flag = argv[i];
+
+        if (flag[0] != '-')
+        {
+            printf("\n%s Illegal flag", flag);
+            return 1;
+        }
+        
+        switch (flag[1])
         {
         case 'i':
             inverted = true;
@@ -46,12 +52,7 @@ int main()
         }
     }
 
-    char source[FILENAME_SIZE];
-
-    if (scanf("%s ", &source) != 1)
-    {
-        return 1;
-    }
+    char* source = argv[argc - 2];
 
     FILE* in_stream = fopen(source, "r");
 
@@ -61,12 +62,7 @@ int main()
         return 2;
     }
 
-    char target[FILENAME_SIZE];
-
-    if (scanf("%s\n", &target) != 1)
-    {
-        return 3;
-    }
+    char* target = argv[argc - 1];
 
     FILE* out_stream = fopen(target, "w");
 
