@@ -1,7 +1,8 @@
 CC = gcc
 OBJS = RLEList.o AsciiArtTool.o
 EXEC = AsciiArtTool
-COMP_FLAG = -std=c99 -Wall -Werror
+DEBUG = # now empty, assign -g for debug
+CFLAGS = -std=c99 -Wall -Werror $(DEBUG)
 
 $(EXEC) : $(OBJS)
 	$(CC) $(DEBUG_FLAG) $(OBJS) -o $@

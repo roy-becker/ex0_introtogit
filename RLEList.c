@@ -1,7 +1,6 @@
 #include "RLEList.h"
 
 
-#define NULL 0
 #define NULL_CHAR 0
 #define NULL_INPUT -1
 

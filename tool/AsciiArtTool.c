@@ -1,9 +1,6 @@
 #include "AsciiArtTool.h"
 
 
-#define NULL 0
-
-
 RLEList asciiArtRead(FILE* in_stream)
 {
     char value;

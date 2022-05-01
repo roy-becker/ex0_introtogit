@@ -3,7 +3,6 @@
 #include "AsciiArtTool.h"
 
 
-#define NULL 0
 #define FILENAME_SIZE 100
 
 
