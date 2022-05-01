@@ -210,7 +210,7 @@ char RLEListGet(RLEList list, int index, RLEListResult* result)
 }
 
 
-int numLength(n)
+int numLength(int n)
 {
 	if (n < 10)
 	{
