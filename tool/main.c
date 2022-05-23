@@ -10,14 +10,14 @@ char invert(char value)
 {
     switch (value)
     {
-    case ' ':
-        return '@';
-    
-    case '@':
-        return ' ';
-    
-    default:
-        return value;
+        case ' ':
+            return '@';
+        
+        case '@':
+            return ' ';
+        
+        default:
+            return value;
     }
 }
 
@@ -29,46 +29,43 @@ int main(int argc, char **argv)
 
     for (int i = 1; i < argc - 2; i++)
     {
-        char* flag = argv[i];
+        const char* flag = argv[i];
 
         if (flag[0] != '-')
         {
-            printf("\n%s Illegal flag", flag);
+            printf("\n%s Illegal flag\n", flag);
             return 1;
         }
         
         switch (flag[1])
         {
-        case 'i':
-            inverted = true;
-            break;
-        
-        case 'e':
-            encoded = true;
-            break;
-        
-        default:
-            break;
+            case 'i':
+                inverted = true;
+                break;
+            
+            case 'e':
+                encoded = true;
+                break;
         }
     }
 
     char* source = argv[argc - 2];
 
+    char* target = argv[argc - 1];
+
     FILE* in_stream = fopen(source, "r");
 
     if (in_stream == NULL)
     {
-        printf("\n%s File not found!", source);
+        printf("\n%s File not found!\n", source);
         return 2;
     }
-
-    char* target = argv[argc - 1];
-
+    
     FILE* out_stream = fopen(target, "w");
 
     if (out_stream == NULL)
     {
-        printf("\n%s File not found!", target);
+        printf("\n%s File not found!\n", target);
         return 4;
     }
 
@@ -87,6 +84,9 @@ int main(int argc, char **argv)
     {
         asciiArtPrintEncoded(list, out_stream);
     }
+
+    fclose(in_stream);
+    fclose(out_stream);
 
     RLEListDestroy(list);
 }
