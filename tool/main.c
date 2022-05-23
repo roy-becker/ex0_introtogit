@@ -31,21 +31,14 @@ int main(int argc, char **argv)
     {
         const char* flag = argv[i];
 
-        if (flag[0] != '-')
+        if (strcmp(flag, "-i") == 0)
         {
-            printf("\n%s Illegal flag\n", flag);
-            return 1;
+            inverted = true;
         }
-        
-        switch (flag[1])
+
+        if (strcmp(flag, "-e") == 0)
         {
-            case 'i':
-                inverted = true;
-                break;
-            
-            case 'e':
-                encoded = true;
-                break;
+            encoded = true;
         }
     }
 
@@ -89,4 +82,6 @@ int main(int argc, char **argv)
     fclose(out_stream);
 
     RLEListDestroy(list);
+
+    return 0;
 }
